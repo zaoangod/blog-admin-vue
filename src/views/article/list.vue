@@ -98,16 +98,16 @@
             dataPage: {
                 page: 1,
                 total: 7
-            },
-            methods: {
-                getStatus(status) {
-                    if (status === 'publish') {
-                        return 'green'
-                    } else if (status === 'draft') {
-                        return 'orange'
-                    }
-                },
             }
-        })
+        }),
+        methods: {
+            getStatus(status) {
+                if (status === 'publish') {
+                    return 'green'
+                } else if (status === 'draft') {
+                    return 'orange'
+                }
+            },
+        }
     };
 </script>

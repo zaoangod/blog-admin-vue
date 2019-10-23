@@ -10,8 +10,6 @@
                 <v-col cols="6" class="py-0">
                     <v-text-field v-model="slug" :rules="slugRules" :counter="50" label="自定义访问路径, 如my-article, 默认为ID"></v-text-field>
                 </v-col>
-            </v-row>
-            <v-row>
                 <v-col cols="6" class="py-0">
                     <v-text-field v-model="title" :rules="titleRules" :counter="50" label="文章标题" required></v-text-field>
                 </v-col>
@@ -23,6 +21,10 @@
     </v-card>
 </template>
 <script>
+    import mditor from '/lib/mditor/mditor.min.js';
+
+    require('/lib/mditor/mditor.min.js');
+
     export default {
         data: () => ({
             title: '',
@@ -35,6 +37,20 @@
                 v => !!v || '请输入文章标题',
                 v => v.length <= 10 || '文章标题不能大于50个字',
             ]
-        })
+        }),
+        methods: {
+            getStatus(status) {
+                if (status === 'publish') {
+                    return 'green'
+                } else if (status === 'draft') {
+                    return 'orange'
+                }
+            },
+        }
     };
 </script>
+
+<style scoped>
+    @import '/lib/mditor/mditor.min.js';
+    @import '/lib/mditor/mditor.min.css';
+</style>

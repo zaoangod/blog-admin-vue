@@ -39,6 +39,7 @@
             </template>
         </v-data-table>
         <v-divider></v-divider>
+
         <v-pagination class="my-4" v-model="dataPage.page" :circle="true" :length="dataPage.total" :page="dataPage.page" :total-visible="7"></v-pagination>
 
         <!--编辑对话框-->
@@ -76,6 +77,7 @@
         </template>
 
     </v-card>
+
 </template>
 <script>
     export default {
